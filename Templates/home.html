@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      text-align: center;
+    }
+     
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse; 
+    }
+    th, td {
+  padding: 15px;
+} 
+  #todo {
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  #completed {
+    float: right;
+    margin-right: 1%;
+    margin-left: 1%;
+  }
+    </style>
+
+</head>
+<body>
+  <a href="{{ url_for('logout') }}">Logout</a>
+  <form method="post">
+    <label>Name</label>
+    <input type="text" name="todo" required>
+    <input type="submit" name="add_btn" value="Add">
+</form> <br><br>
+
+<table id="todo" style="width:48%">
+  <tr>
+    <th>To-do</th>
+  </tr>
+  {% for i, j in todo %}
+  <tr>
+    <td><h3>{{ j }}</h3>
+      <form method="POST">
+        <button type="submit" name="completed_btn" value="{{ i }}">Done</button>
+        <button type="submit" name="remove_btn" value="{{ i }}">Remove</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<table id="completed" style="width:48%">
+  <tr>
+    <th>Completed</th>
+  </tr>
+  {% for i, j in completed %}
+  <tr>
+    <td><h3>{{ j }}</h3>
+      <form method="POST">
+        <button type="submit" name="addtask_btn" value="{{ i }}">Add</button>
+        <button type="submit" name="removeCompleted_btn" value="{{ i }}">Remove</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+
+</body>
+</html>

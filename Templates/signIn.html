@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+    </head>
+
+    <body>
+        <h1>Login</h1>
+        {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            {{ msgs }}
+        {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <input type="email" name="userEmail" placeholder="Email" required>
+            <input type="password" name="userPassword" placeholder="Password" minlength="8" required>
+            <input type="submit" value="Login">
+        </form>
+        <br>
+        <a href="{{ url_for('forgotPassword') }}">Forgot password?</a>
+        
+    </body>
+</html>

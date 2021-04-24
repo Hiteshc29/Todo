@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Verify</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <h1>Verify</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {{ messages }}
+        {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <input type="text" name="otp" placeholder="Enter code" required>
+            <input type="submit" value="Submit">
+        </form>
+        
+    </body>
+</html>

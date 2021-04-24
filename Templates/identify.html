@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Verify</title>
+    </head>
+
+    <body>
+        <h1>Verify</h1>
+        {% with email_msg = get_flashed_messages() %}
+        {% if email_msg %}
+            {{ email_msg }}
+        {% endif %}
+        {% endwith %}
+        <h1>Search your account</h1>
+        <h4>Enter your email address</h4>
+        <form method="POST">
+            <input type="email" name="userEmail" placeholder="Email" required>
+            <input type="submit" value="Search">
+        </form>
+        
+    </body>
+</html>
