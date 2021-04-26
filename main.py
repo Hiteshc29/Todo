@@ -15,14 +15,15 @@ app.permanent_session_lifetime = timedelta(days=1)
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    password = "Mysql@123",
+    password = "", #add MySQL password
     database = "test",
     auth_plugin='mysql_native_password'
 )
-
+smtpEmail = "" #add your email
+smtpPassword = "" #add your password
 smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
 smtpObj.starttls()
-smtpObj.login('pricetracker000@gmail.com','price!@#123')
+smtpObj.login(smtpEmail,smtpPassword)
 
 @app.route('/')
 def index():
